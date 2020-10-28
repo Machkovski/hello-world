@@ -1,0 +1,582 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+
+}
+html
+{
+    font-size: 10px;
+
+}
+a{
+    text-decoration: none;
+}
+.kopche
+{
+        display: inline-block;
+        padding: 10px 30px;
+        color: white;
+        background-color: transparent;
+        border: 2px solid crimson;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        margin-top: 30px;
+        transition: .3s ease;
+        transition-property: background-color, color;
+     }
+.kopche:hover
+ {
+        color: white;
+        background-color: crimson;
+}
+
+.container
+{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+a {
+	text-decoration: none;
+}
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+p {
+	color: black;
+	font-size: 1.4rem;
+	margin-top: 5px;
+	line-height: 2.5rem;
+	font-weight: 300;
+	letter-spacing: .05rem;
+}
+/*header*/
+    #header 
+    {
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: auto;
+    }
+    #header .header
+    {
+        min-height: 8vh;
+        background-color: rgba(31, 30, 30, 0.24);
+    }
+    #header .navigation-bar
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 95%;
+        max-width: 1300px;
+        padding: 0 10;
+    }
+    #header .navigation-list ul
+    {
+        list-style: none;
+        position: absolute;
+        background-color: rgb(31, 30, 30);
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        overflow:  hidden;
+    }
+    #header .navigation-list ul a
+    {
+        font-size: 2.5rem;
+        font-weight: 500;
+        letter-spacing: .2rem;
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        padding: 20px;
+        display: block;
+    }
+    /*after tekst ko kje se pricni na menito pokasno*/
+
+/*Kraj header*/
+#header .menu {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid white;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	cursor: pointer;
+	transform: scale(.8);
+	margin-right: 20px;
+}
+#header .menu:after {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 3px solid white;
+}
+#header .menu .bar {
+	height: 2px;
+	width: 30px;
+	position: relative;
+	background-color: white;
+	z-index: -1;
+}
+#header .menu .bar::after,
+#header .menu .bar::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	background-color: white;
+
+}
+#header .menu .bar::after {
+	top: 8px;
+}
+#header .menu .bar::before {
+	bottom: 8px;
+}
+
+
+/*Glaven del*/
+#glaven{
+    background-image: url(./img/pozadina.png);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+#glaven .glaven {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 50px;
+	justify-content: flex-start;
+}
+#glaven::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.6;
+    z-index: -1;
+}
+#glaven h1
+{
+    
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: white;
+}
+#glaven h1 span
+{
+    color: rgb(148, 2, 31);
+}
+
+
+/*Glaven del zavrshuva*/
+
+/*Favourite Movies section*/
+
+#favourites .favourites{
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+#favourites .Sekcija-naslov
+{
+    padding-top: 30px;
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+#favourites .Sekcija-naslov span
+{
+    color: crimson;
+}
+#favourites .movies-top
+{
+    max-width: 500px;
+    margin: 0 auto;
+}
+#favourites .movies-top p
+{
+font-size: 1.6rem;
+margin-top: 10px;
+line-height: 2.7rem;
+font-weight: 300;
+letter-spacing: .06rem;
+}
+#favourites .movies-bottom 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+#favourites .film1
+{
+flex-basis: 80%;
+display: flex;
+align-items: flex-start;
+justify-content: center;
+flex-direction: column;
+padding: 30px;
+padding-left: 115px;
+border-radius: 10px;
+background-image: url(./img/tasks.png);
+
+
+background-position-x: left;
+background-position-y: left;
+margin: 10px 5%;
+position: relative;
+z-index: 1;
+overflow: hidden;
+
+}
+#favourites .film1::after
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg, #29323c 0%,#485563 100% );
+    opacity: .9;
+    z-index: -1;
+}
+#favourites .film1 h2
+{
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 9px;
+    text-transform: uppercase;
+}
+#favourites .film1 p
+{
+    color: white;
+    text-align: left;
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+}
+/*End Favourite Movies section*/
+
+/*Favourite Music section*/
+#favourites .muzika-top p
+{
+font-size: 1.5rem;
+margin-top: 10px;
+line-height: 2.7rem;
+font-weight: 300;
+letter-spacing: .06rem;
+
+}
+#favourites .muzika-bottom 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+#favourites .muzika1
+{
+flex-basis: 80%;
+display: flex;
+align-items: flex-start;
+justify-content: center;
+flex-direction: column;
+padding: 30px;
+padding-left: 135px;
+border-radius: 10px;
+background-image: url(./img/muzika1.png);
+
+margin: 10px 5%;
+}
+#favourites .muzika1 h2
+{
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 9px;
+    text-transform: uppercase;
+}
+
+
+/*End Favourite Music section*/
+
+/* Favourite food section*/
+#favourites .muzika-top p
+{
+font-size: 1.5rem;
+margin-top: 10px;
+line-height: 2.7rem;
+font-weight: 300;
+letter-spacing: .06rem;
+
+}
+#favourites .hrana1
+{
+flex-basis: 80%;
+display: flex;
+align-items: flex-start;
+justify-content: center;
+flex-direction: column;
+
+padding: 40px;
+
+padding-left: 5px;
+border-radius: 10px;
+background-image: url(./img/jadenje5.png);
+background-repeat: no-repeat;
+
+margin: 10px 5%;
+}
+#favourites .hrana-bottom 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+#favourites .hrana1 h2
+{
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+#favourites .hrana1 span
+{
+    color: greenyellow;
+}
+/*End Favourite Food section*/
+
+/*Galerija*/
+#gallery .Sekcija-naslov span
+{
+    color: crimson;
+}
+#gallery  p
+{
+    font-size: 1.5rem;
+}
+#gallery .gallery
+{
+    background-color: rgb(99, 133, 235);
+}
+
+/*End Galerija*/
+
+/*Blog*/
+#blog .blog h1
+{
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 9px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+#blog .blog h3
+{
+    padding-top: 20px;
+    
+    font-size: 1.1rem;
+    
+    color: white;
+    margin-bottom: 9px;
+    text-transform: uppercase;
+}
+ #blog .Sekcija-naslov span
+{
+    color: crimson;
+}
+#blog  p
+{
+    color: rgb(252, 212, 212);
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+}
+#blog .blog
+{
+   background-image:  url(./img/blog3.png);
+   background-repeat: none;
+   opacity: 0.9;
+}
+
+/*End Blog*/
+
+/*About ME*/
+#about .about
+{
+    flex-direction: row;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+#about .col-left
+{
+    width: 250px;
+    height: 360px;
+}
+#about .col-right
+{
+    width: 100%;
+}
+#about .col-right h3
+{
+    margin-bottom: 12px;
+    font-weight: 750;
+    letter-spacing: .2rem;
+}
+#about .col-right p
+{
+    margin-bottom: 20px;
+}
+#about .col-right .kopche
+{
+    color: black;
+    margin-bottom: 40px;
+    padding: 10px 20px;
+    font-size: 2rem;
+}
+#about .col-left .slikata {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	border: 2px solid white;
+}
+#about .col-left .slikata::after {
+	content: '';
+	position: absolute;
+	left: 35px;
+	top: 15px;
+	height: 23%;
+	width: 45%;
+	border: 4px solid rgb(38, 148, 38);
+	z-index: -1;
+}
+/*End About Me*/
+
+/*Contact*/
+#contact .contact
+{
+    flex-direction: column;
+    max-width: 1200;
+    margin: 0 auto;
+}
+#contact .Sekcija-naslov span
+{
+    color: crimson;
+}
+#contact .contact-items
+{
+    width: 380px;
+
+}
+#contact .chudo
+{
+    width: 80%;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 20px 0 #0000002c;
+
+}
+#contact .chudo:hover
+{
+    box-shadow: 0px 0px 10px 0 #0000002c;
+}
+.contact icon
+{
+    width: 70px;
+    margin: 0 auto;
+    margin-bottom: 12px;
+}
+.contact .informacija h1
+{
+font-size: 2.5rem;
+font-weight: 500;
+margin-bottom: 5px;
+}
+.contact .informacija h1
+{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 500;
+}
+/*End Contact*/
+
+/* Media For Desktop */
+@media only screen and (min-width: 1200px) {
+	/* header */
+	#header .menu {
+		display: none;
+	}
+	#header .navigation-list ul {
+		position: initial;
+		display: block;
+		height: auto;
+		width: fit-content;
+		background-color: transparent;
+	}
+	#header .navigation-list ul li {
+		display: inline-block;
+	}
+	#header .navigation-list ul li a {
+		font-size: 1.8rem;
+	}
+	#header .navigation-list ul a:after {
+		display: none;
+	}
+	/* End header */
+
+	#favourites .movies-bottom .film1 {
+		flex-basis: 22%;
+		margin: 1.5%;
+	}
+}
+/* End  Media For Desktop */
