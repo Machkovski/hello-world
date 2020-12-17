@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset = "utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         
+        <title>Моја Веб-страна</title>
+        <style type = "text/css">
+        html, body { height: 100%; width: 100%; margin: 0; }
+        img.prva{float:left;
+        position:static;
+        top: 0px;}
+        .Home
+        {
+        position: relative;
+        top:80px;
+        font-size: 130%;
+        }
+        .Favourites
+        {
+        position: relative;
+        top:100px;
+        font-size: 130%;}
+        .Gallery
+        {position: relative;
+        top:120px;
+        font-size: 130%;}
+        .Blog
+        {position: relative;
+        top:140px;
+        font-size: 130%;}
+        .Contact
+        {position:relative;
+        top:160px;
+        font-size: 130%;}
+        .Review
+        {position:relative;
+        top:180px;
+        font-size: 130%;
+        }
+        .Home, .Favourites, .Gallery, .Blog, .Contact, .Review{
+            width:100px;
+            height:50px;
+            font-size: 110%;
+
+            background-image: url(./img/tasks.png);
+            background-size: cover;
+            background-position: top center;
+            position: relative;
+            z-index: 1;
+
+            background-color: rgb(197, 66, 66)
+        }
+        .wrapfaves{
+            margin-top: 30px;
+            padding-left: 380px;
+            position: relative;
+            left: 20px;
+            top: 20px;
+            overflow:auto;
+            max-height: 275px;
+        }
+        .det{
+            position: relative;
+            left: 20px;
+        }
+        summary.golemo
+        {
+            font-size: 130%;
+    
+            padding-left: 110px;
+            width: 14em;
+            background-color: rgb(70, 164, 219);
+            border: 5px solid black;
+            box-shadow: 4px 0px 4px black;
+            cursor: grabbing;
+        }
+        summary.pad
+        {
+            padding: 2px 4px;
+            width: 15em;
+            background-color: rgb(192, 22, 59);
+            border: 2px solid black;
+        }
+        @keyframes blink
+        {
+            0% {opacity:1;}
+            50% {opacity:0.5;}
+            100% {opacity:1;}
+        }
+        img.blink
+        {
+            animation: blink normal 2s infinite ease-in-out;
+            height: 100%;
+            width: 100%;
+        }
+        div.third
+        {
+            float:left;
+            width: 10vw;
+            height: 100vh;
+        }
+        div.tretPAT
+        {
+            float: left;
+            overflow:scroll;
+            background-color:  rgb(235, 101, 39);
+            width: 90vw;
+            height: 100vh;
+        }
+        li.fave{font-size: 120%;}
+        ::-webkit-scrollbar{
+            width: 0px;
+            background: transparent;
+        }
+        div.back
+        {
+            float:left;
+            width:10vw;
+            height:100vh;
+            display: table-cell;
+            text-align: center;
+            font-size: 1vw;
+            border: 1vh, solid blue;
+            background: -webkit-radial-gradient(center,red,blue);
+            background: -moz-radial-gradient(center, red,blue);
+            background: radial-gradient(center,red,blue);
+        }
+        h1.naslov
+        {
+            padding-top: 100px;
+            padding-left:45px ;
+            text-align: left;
+            font-size: 4vw;
+            float: center;
+            position: relative;
+        }
+        h1.segmenti span
+        {
+            color: rgb(57, 59, 214);
+        }
+        h1.naslov span
+        {
+            color: rgb(148, 2, 31);
+        }
+        h2.l1{position: relative;
+        left:20vh;}
+        h1.hom{position: relative;
+        left: 16vh;}
+        h2.l{position: relative;
+        left: 250px;}
+        li.l{position: relative;
+        left:5vh;
+        font-size: 110%;}
+        li.l1{font-size: 110%;}
+        .l2{
+        position: relative;
+        left:40px;
+        font-size: 110%;}
+        .l3{
+        font-size: 105%;
+        text-align: justify;}
+        p.cl{position: relative;
+        left:80px;
+        font-size: 110%;}
+        .push{position: relative;
+        left:500px;}
+        h1{text-align: center;}
+
+        /* galerija */
+        form.galerijata
+        {
+            display:table;
+        }
+        p.para 
+        {
+            display: table-row;
+        }
+        label.galerijata, img.slikata, input.galerijata, p.g2, button.galerija1, .txt, .galerija3
+        {
+            display: table-cell;
+        }
+        .vnes       /*Delot za komentiraj kopcheto*/
+        {
+            
+            position: relative;
+            left: 27.3vw;
+        }
+        img.slikata
+        {
+            position: relative;
+            top:4vh;
+            left: 27.5vw;
+        }
+        input.galerijata
+        {
+            
+            width:20.15vw;
+            position: relative;
+            left: 27.3vw;
+        }
+        p.g2{
+            width:245px;
+        }
+        button.galerija1/*Likes button*/
+        {
+            
+            height:6.3vh;
+            width:3.3vw;
+            position: relative;
+            left: 27.3vw;
+        }
+        .txt
+        {
+            position: relative;
+            left: 27.3vw;
+            font-size:110%;
+        }
+        .galerija3 /*Ova e delot za reply sekcijata*/
+        {
+            position: relative;
+            left: 26vw;
+            top: 5vh;
+            margin-left: auto;
+            padding: 10px;
+            overflow:auto;
+            height: 10px;
+            width: 23.6vw;
+            border: 3px solid rgb(39, 71, 173);
+            text-align: right;
+        }
+        .kelii
+        {
+
+            font-size: 80%;
+        }
+        p.hash
+        {
+            position: relative;
+            left:27.3vw;
+        }
+
+        /* blog */
+        .wrapb{
+            padding: 10px;
+            position: relative;
+            font-size: 120%;
+            left: 95px;
+            overflow:auto;
+            max-height: 210px;
+            max-width: 1000px;
+            border: 3px solid black;
+        }
+        header.b{
+        text-align: center;
+        font-size: 150%;
+        font-weight: bold;}
+
+        legend.osnova
+        {
+        font-size:180%;
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* kontakti */
+        p.kontNaslov
+        {
+            font-weight: bold;
+            text-align: center;
+            font-size: 200%;
+        }
+        p.pad
+        {
+            padding-top: 90px;
+            text-align: center;
+            align-items:baseline;
+        }
+                textarea.elementi{width:50vw;
+        height:20vh;
+        font-size: 130%;}
+        input.elementi{font-size: 100%;}
+        input.elementi1{font-size: 100%;
+        position:relative;
+        left: 2.6vw;
+        }
+        label.elementi{font-size: 100%;}
+        input.sub{
+            width:5vw;
+            height:3.5vh;
+            font-size: 110%;
+        }
+        p.cent{text-align: center;}
+        p.lef{text-align: right;}
+
+        /*Kontakt del*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  
+  body{
+    background:rgb(235, 101, 39);
+  }
+  
+  .wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 350px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 2px rgba(254,236,164,1); 
+  }
+  
+  .wrapper h2{
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #332902;
+  }
+  
+  .wrapper .input_field{
+    margin-bottom: 10px;
+  }
+  
+  .wrapper .input_field input[type="text"],
+  .wrapper textarea{
+    border: 1px solid #e0e0e0;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .wrapper textarea{
+    resize: none;
+    height: 80px;
+  }
+  
+  .wrapper .btn input[type="submit"]{
+    border: 0px;
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    background: gray;
+    color: #332902;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  #error_message{
+    margin-bottom: 20px;
+    background: #fe8b8e;
+    padding: 0px;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.5s ease;
+  }
+  
+
+        </style>
+        <script>
+            // Za likes
+           // function first() {
+              //  for(var i=1; i<7;i++)
+         //       {
+           //         document.getElementById('del'+i).innerHTML = localStorage.getItem('likes'+i);
+           //     }
+            //    var buttons=document.getElementsByClassName("galerija1");
+             //   for(var b=0;b<buttons.length+1;b++)
+            //    {
+             //       buttons[b].style.background="url('img/praaazno2.png')";
+//
+               // }
+         //   }
+
+           // function likes(buttonID, divID, br) {
+            //    var cValue= localStorage.getItem('likes'+br) ? parseInt(localStorage.getItem('likes'+br)) : 0;
+             //   var nValue = cValue + 1;
+              //  localStorage.setItem('likes'+br, nValue);
+             //   document.getElementById(divID).innerHTML = localStorage.getItem('likes'+br);
+                
+              //  var buttons=document.getElementsByClassName("galerija1");
+               // buttons[br-1].style.background="url('img/full3.png')";   
+            }
+            //Za komentari
+            //var kom_brojac = new Array();
+            //for(i=0; i<6; i++){
+            //    kom_brojac[i]=1;
+            //}
+            //function komentar(com, pt, count){
+            //    var inputV=document.getElementById("com").value;
+            //    var post=document.getElementById("pt").innerHTML;
+            //    if(post == "")
+            //    {
+            //        post =inputV + "<br>" + "<p id='" + kom_brojac[count] + "' class='kelii'>" + "</p>";
+             //   }
+             //   else
+             //   {
+             //       post = post + inputV + "<br>" + "<p id='" + kom_brojac[count] + "' class='kelii'>" + "</p>";
+             //   }
+            //    post = post + "<input id='" + kom_brojac[count] + kom_brojac[count] + "' type='text'>";
+            //    post = post + "<input type='button' value='Reply' onclick='reply(" + kom_brojac[count] + "," + kom_brojac[count] + kom_brojac[count] + ")'><br>";
+            //    kom_brojac[count] += 1;
+            //    document.getElementById("pt").innerHTML=post;
+            //}
+            //function reply(broj, inputbr) {
+             //   var inputR = document.getElementById("inputbr").value;
+            //    var postR = document.getElementById("broj").innerHTML;
+             //   if(postR == "")
+              //  {
+              //      postR = inputR;
+              //  }
+              //  else
+               // {
+              //      postR = postR + inputR;
+              //  }
+               // postR = "<p>" + postR + "</p>";
+               // document.getElementById("broj").innerHTML=postR;
+          //  }
+
+          //Funkcija za komentari najdena na internet
+         // var kom_brojach =[0,0,0,0,0,0];
+         //   var cn = 0;
+          //  function komentar(com, pt, count, i){
+          //          var inputValue=$("#" + com + "").val();
+          //          $("#" + pt + "").append("<p id='" + kom_brojach[count] + "' class='kelii'>"+inputValue+"</p>");
+          //          var nov = "Успешно коментиравте на слика бр."+(cn+1);
+           //         $("#" + pt + "").append("<input id='" + nov + "' type='text'>");
+           //         $("#" + pt + "").append("<input type='button' value='Reply' onclick='reply(" + kom_brojach[count] + "," + '"'+nov+ '"' + ")'>");
+           //         kom_brojach[count] += 1;
+            //        cn += 1;
+            //    }
+            //    function reply(broj, vnesbroj, i) {
+                
+             //   alert(vnesbroj);    
+             //   var inputR = $("#"+vnesbroj).val();
+                //alert(inputR);
+                
+             //   $("div #0 p #"+broj).append("<p>" + inputR + "</p>");
+          //  }
+            //Za search
+            function search() {
+                var ser = document.getElementById("ser").value;
+                var pbr = document.getElementsByName("hash");
+                var ps = document.getElementById("main").getElementsByTagName("p");
+                var m = 0;
+                for(var i=5; i>=0; i--)
+                {
+                    var p = pbr[i].innerText;
+                    if(p.indexOf(ser,0) > -1)
+                    {
+                    }
+                    else
+                    {
+                        switch(i)
+                        {
+                            case 5:
+                                m=50;
+                                break;
+                            case 4:
+                                m=40;
+                                break;
+                            case 3:
+                                m=30;
+                                break;
+                            case 2:
+                                m=20;
+                                break;
+                            case 1:
+                                m=10;
+                                break;
+                            case 0:
+                                m=0;
+                                break;
+                        }
+                        for(var j=9; j>=0; j--)
+                        {
+                            var novo = ps[m+j];
+                            novo.parentNode.removeChild(novo);
+                        }
+                    }
+                }
+            }
+        </script>
+<script>
+            //Navigacija
+            $(document).ready(function(){
+                $("#bh").click(function(){
+                    $(".tretPAT").hide()
+                    $("#homepage").show()
+                })
+                $("#bi").click(function(){
+                    $(".tretPAT").hide()
+                    $("#omileni").show()
+                })
+                $("#bg").click(function(){
+                    $(".tretPAT").hide()
+                    $("#galerija").show()
+                })
+                $("#bb").click(function(){
+                    $(".tretPAT").hide()
+                    $("#blog").show()
+                })
+                $("#bc").click(function(){
+                    $(".tretPAT").hide()
+                    $("#kontakti").show()
+                })
+                //$("#br").click(function(){
+                //    $(".tretPAT").hide()
+                 //   $("#recenzija").show()
+                //})
+            })
+</script>
+<script>
+            //Za blogot
+            var brojach = 0;
+            $(document).ready(function(){
+                $(".sub").click(function(){
+                    var datum = Date();
+                    datum = datum.slice(0, -42);
+                    var user = $("#ime").val();
+                    var title = $("#naslov").val();
+                    var text = $("#text").val();
+                     if(text == "")
+                    {
+                         alert("Не заборавајте да ги споделите вашите мисли со нас!");
+                     }
+                    if(user == "")
+                    {
+                        user = "Анинимен корисник"
+                    }
+                    if(title == "")
+                    {
+                        title = " Без наслов"
+                    }
+                    $("#posts").append("<fieldset id='prom'><legend>"+title+"</legend></fieldset>");
+                    $("#prom").append("<p>"+user+"</p>");
+                    $("#prom").append("<p class='cent'>"+text+"</p>");
+                    $("#prom").append("<p class='lef'>"+datum+"</p>")
+                    $("#ime").val("");
+                    $("#naslov").val("");
+                    $("#text").val("");
+                });
+            });
+        </script>
+        
+    </head>
+
+    <body>
+        <div class = "back"><h1>Мени:</h1>
+            <button id="bh" class ="Home">Дома</button>
+            <button id ="bi" class ="Favourites">Омилени</button>
+            <button id="bg" class ="Gallery" onclick="location.href='galerija.html'">Галерија</button>
+            <button id="bb" class = "Blog" onclick="location.href='blog.html'">Блог</button>
+            <button id="bc" class = "Contact">Контакт</button>
+            <button id="br" class="Review" onclick="location.href='kontaktPROBA.html'">Рецензија</button>
+
+            <!--<button id="br" class = "Review">Рецензија</button>-->
+        </div>
+
+        <div id = "homepage" class = "tretPAT">
+            
+            <h1 class="naslov">Здраво,<br>Моето име е<br><span>Томче</span></h1><br>
+        </div>
+
+
+        <div id = "omileni" class = "tretPAT" style = "display:none">
+            <h1>Омилени</h1>
+            <details class="wrapfaves">
+                <summary class = "golemo">Филмови</summary>
+                <ol>
+                    <li class="fave">
+                        <details><summary class ="pad">Pulp Fiction</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/s7EdQ4FqbhY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN="left"></iframe>
+                        
+                    <br><br><br><br><br><br>
+                    </details></li>
+                    <li class="fave">
+                        <details><summary class ="pad">The Usual Suspects</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/oiXdPolca5w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN="left"></iframe>
+                        
+                    <br><br><br><br><br><br><br><br>
+                    </details></li>
+                    <li class="fave">
+                        <details><summary class ="pad">The Silence of the Lambs</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/RuX2MQeb8UM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN="left"></iframe>
+                       
+                    <br><br>
+                </ol>
+            </details><br>
+            <details class = "wrapfaves">
+                <summary class = "golemo">Храна</summary>
+                <ol>
+                    <li class="fave">
+                        <details><summary class ="pad">Појадок</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/dvWVaN3a6ao" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN = "left"></iframe>
+                       
+                    <br><br><br><br>
+                    </details></li>
+                    <li class="fave">
+                        <details><summary class ="pad">Ручек</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/J0LAvL4G_cA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN = "left"></iframe>
+                        
+                    <br><br><br><br>
+                    </details></li>
+                    <li class="fave">
+                        <details><summary class ="pad">Вечера</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/GHObLNhRkFE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN="left"></iframe>
+                        
+                    <br><br>
+                </ol>
+            </details><br>
+            <details class = "wrapfaves">
+                <summary class = "golemo">Музика</summary>
+                <ul>
+                    <li class="fave">
+                        <details><summary class ="pad">За забавување</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/gy8jvB1ibLg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN ="left"></iframe>
+                       
+                    <br><br>
+                    </details></li>
+                    <li class="fave">
+                        <details><summary class ="pad">За опуштање</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/eOlLPCVTLfE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN = "left"></iframe>
+                        
+                    <br><br><br><br><br>
+                    </details></li>
+                    <li class="fave">
+                        <details><summary class ="pad">За пред спиење</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/SRwKpg8voqI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN = "left"></iframe>
+                        
+                    <br><br>
+                </ul>
+            </details>
+       </div>
+
+       <div id = "kontakti" class = "tretPAT" style = "display:none">
+        <p class="kontNaslov"><b>За повеќе информации исконтактирајте ме<br> преку еден од следните линкови:</b>
+        </p>
+        <br>
+            <p class ="pad">
+                <a href="mailto:khie2262017@feit.ukim.edu.mk" title="khie2262017@feit.ukim.edu.mk"  target="_blank">
+                <img src="img/mail.png" width="200px" height="200px" title="Мојот mail!"">
+            </a>
+            </p>
+
+            <p class ="pad">
+           <a href = "https://www.facebook.com/tomce.mackovski" target="_blank">
+                <img src="img/fb.jpg" width="200px" height="200px" title="Мојот Facebook профил!">
+            </a>
+            </p>
+
+            <p class ="pad">
+                <a href = "https://www.instagram.com/machkovskitomche/" target="_blank">
+                <img src="img/ig.jpg" width="200px" height="200px" title="Мојот Инстаграм профил!">
+            </a></p>
+
+    </div>
+
+
+    </body>
+</html>

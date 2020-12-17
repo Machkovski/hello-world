@@ -1,83 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <style>
-        body {
-           background-image: url(./img/blogger.png);
-           background-repeat: no-repeat;
-         }
-         </style>
-         <style>
-            h1 {text-align: center;text-transform: uppercase;}
-            p {text-align: center;}
-            div {text-align: center;}
-            </style>
-</head>
-<body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Мој Блог</title>
 
-    <div class="blog-top">
-    <h1>Feel free to share your thoughts and start a discution</h1>
-     <!--Tekst koj sho ke treba da go koregiram mozhda so CSS da go sredam dodatno ponatamu da stoi vo BOX-->
-    <p>
-        Handball rules<br>
-                Nowadays, I see handball as a sport which only progress in certain countries.<br> Handball is not enough attractive for the fans. There are lot of problems with rules of game. <br>If you see who is in IHF Commission, there are some representatives of Africa, Asia, almost Apaches who don’t know anything about handball.<br>
-                 They are making future of the sport? Rules are too complicated. Normal sports fan who came to watch handball needs a month to understand all the rules.<br>
-                  You don’t know when is foul in attack or not, you need fingers to count passes, shooting on empty goal prevent you of playing “man on man” because you have situation 7 on 6.<br>
-                  Tactical options don’t exist anymore if you have powerplay, you can play only 5-1 defense, with one guy who can steal the ball.<br>
-                   You have no option to play “man on man” which is something interesting for the fans. Rules of the game are so bad, criminal.<br>
-            </p>
-            <p>    
-                It’s easy to make normal rules in handball, to make sport much more attractive for the people and media.<br>
-                 The reason is simple. We have a goal. You have a lot of variation how to score that goal in comparison with basketball, when you have only one shoot.<br> Basketball is world’s famous sport and we aren’t on that level because of rules. But in basketball rules changes are in hands of smart and intelligent people.<br>
-                  Every single new rule in basketball was a step forward, you had a good reason for that. OK, “three points”, but you know why.<br>
-                   You have 15 points less five minutes until the end, and you have a chance to score few shoots and to make interesting finish.<br>
-                    In handball, when your team losing 10 goals, you can only leave the hall and go home. We have a lot of problems.<br>
-                     I can’t make a change, as I have never been a part of any Commission, etc.
-            </p>
-            <br>
-            <br>
-            <br>
-            <p>
-                CS:GO Deagle is OP<br>
-                Well when it comes to me i would say it's clearly OP.<br>
-                 I agree with 1tap in HS it's all OK. But when it comes to bodyshots it should never be 2hit kill on armor.<br>
-                  Shotguns and UMP nowdays are less used after nerf's because deagle is just so much better.<br>
-                  For 700$ you get a pocket cannon that basicly deals more damage then the M4A4.<br>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function blog(){
+    var tekst=document.getElementById("blogtxt").value;
+    var datum=document.getElementById("datum").value;
+    var tema=document.getElementById("tema").value;
+    var ime = document.getElementById("ime").value
 
-                I'm not really complaining its just i cant find a round when to use shotguns and smgs.<br>
-                 I don't think these 2 category's should be only for ECO.
-            </p>
+    if(tekst != '' && datum != '' && tema != '' && ime !=''){
+      var hed1 = document.createElement("h2")
+      var para = document.createElement("P");
+      var hed3=document.createElement("h3");
+      var hed2=document.createElement("h2");
+    para.innerHTML = tekst;
+    hed3.innerHTML=datum;
+    hed2.innerHTML=tema;
+    var div=document.createElement("div");
+    div.classList.add('blog');
+    div.appendChild(hed1)
+    div.appendChild(hed2);
+    div.appendChild(hed3);
+    div.appendChild(para);
+    document.getElementById("blogtekst").appendChild(div);
+    document.getElementById("blogtxt").value='';
+    document.getElementById("datum").value='';
+    document.getElementById("tema").value='';
+    document.getElementById("ime")
+    }
+  }
+
+  function izbrisiBlog(){
+    document.getElementById("blogtxt").value='';
+    document.getElementById("datum").value='';
+    document.getElementById("tema").value='';
+    document.getElementById("ime").value='';
+  }
+  window.onbeforeunload=function(){
+    localStorage.setItem("blog", $('#blogtekst').html());
+  }
+
+  window.onload=function(){
+    var blog=localStorage.getItem("blog");
+    if(blog != null) $('#blogtekst').html(`${blog}`);
+}
+        </script>
+<style>
+body
+{
+    background-color:  rgb(235, 101, 39);
+}
+</style>
+ </head>
+        
+<body>     
+<section id="blog">
+            
+    <h1>Блог</h1>
+    <p><label>
+        <input id="ime" style="margin-left: 0px;width: 250px ;"class="input" type="text" placeholder="Корисничко име:">
+   </label>
+
+   </p>
+    <p><label>
+         <input id="tema" style="margin-left: 0px;width: 250px ;"class="input" type="text" placeholder="Наслов на темата:">
+    </label>
+
     </p>
-      <!--End of toj tekst-->
-    </div>  
-    <form action="https://www.codetextpro.com/p/contact-us.html" method="post">   
-        <fieldset>    
-        <legend>     
-       <b>Your Details:</b> 
-        </legend>    
-        <label>     
-       <b> Username:</b>     
-       <input type="text" name="name" size="30" maxlength="100">    
-        </label>    
-        <br />
-        <form action="/action_page.php">
-            <label for="publishtime"><b>Publishing time:</b></label>
-            <input type="datetime-local" id="publishtime" name="publishtime">
-            <input type="submit">
-            <p>     
-            <label for="comments">      
-            <b>Your post:</b>  
-            </label>     
-            <br />     
-            <textarea rows="8" cols="40" id="post">     
-            </textarea>   
-            <br>
-            <input type="submit" value="Submit post" />
-            <input type="reset" value="Delete post" />  
-            <p>Press <a href="/index.html">here</a> to get to the main page.</p>
-          </form>
-</body>
+    <p>
+        <textarea id="blogtxt" placeholder="Внесете текст " name="tema" rows="8" cols="160" required></textarea>
+    </p>
+    <p><label>Датум:
+        <input id="datum" type="date" value="datum" required><br>
+        <input onclick="blog()" class="kopce" type="submit" value="Испрати">
+        <input onclick="izbrisiBlog()" class ="kopce" type="reset" value="Избриши">
+    </label></p>
+
+    <p>
+    <h3><a href="probaCELA.html"> Телепорт до главната страна! </a></h3>
+    </p>
+<div id="blogtekst">
+</div>
+</section>
+</body>  
 </html>

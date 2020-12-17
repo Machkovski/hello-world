@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Галерија</title>
+    <script>
+function getSavedValuePost(v) {
+            if (!localStorage.getItem(v)) {
+                localStorage.setItem(v, "");
+                return "";
+            }
+            return localStorage.getItem(v);
+        }
+
+        function getSavedValue(v) {
+            if (!localStorage.getItem(v)) {
+                localStorage.setItem(v, 0);
+                return 0;
+            }
+            return localStorage.getItem(v);
+        }
+
+        function getSavedValueComments(v) {
+            if (!localStorage.getItem(v)) {
+                localStorage.setItem(v, "");
+                return "";
+            }
+            return localStorage.getItem(v);
+        }
+
+        var ids;
+        var i;
+        var like;
+        function countLikes(clicked_id) {
+            ids = "l"+clicked_id;
+            like=parseInt(localStorage.getItem(ids))+1;
+            document.getElementById(ids).innerHTML=like;
+            localStorage.setItem(ids, like);
+        }
+
+        var com;
+        var scom;
+        var coms;
+        var id;
+        function addComment(clicked_id) {
+            com = window.prompt("Внесете го вашиот коментар тука:");
+
+            ids = "p" + (clicked_id - 100);
+            scom = getSavedValueComments(ids);
+            document.getElementById(ids).innerHTML = scom + com + "<br>";
+
+            scom = scom + com + "<br>";
+            localStorage.setItem(ids, scom);
+
+            ids = "s" + (clicked_id - 100);
+            coms = parseInt(localStorage.getItem(ids)) + 1;
+            document.getElementById(ids).innerHTML = coms;
+            localStorage.setItem(ids, coms);
+        }
+        var curr;
+        function postIt() {
+            var title = document.getElementById("myTitle").value;
+            var text = document.getElementById("myText").value;
+            var d = new Date()
+            d.getDate();
+
+            var cmd = '<div class="card"> <h2>'+title+'</h2> <p>'+text+'</p> <a onclick="Share.facebook()"> <i class="fa fa-facebook" style="font-size:25px; margin-right=25px; margin-left=25px; color:#3b5998; transition: color 0.3s ease;" ></i></a> <a onclick="Share.twitter()"> <i class="fa fa-twitter" style="font-size:25px; margin-right=25px; margin-left=25px; color:#3b5998; transition: color 0.3s ease;"></i></a> <p style="font-size:10px;">'+d+'</p> </div>';
+            curr = getSavedValuePost("posted");
+            document.getElementById("posted").innerHTML = cmd + curr;
+
+            curr = cmd + curr;
+            localStorage.setItem("posted", curr);
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </script>
+    
+    <style>
+      html, body { height: 100%; width: 100%; margin: 0; }
+  .gallery{
+    color:#fff;
+    background: rgb(235, 101, 39);
+}
+.gallery .title::before,
+{
+    background: #fff;
+}
+.title2
+{
+  text-align: right;
+}
+.gallery .title::after{
+    background:  rgb(235, 101, 39);
+   
+}
+.gallery .serv-content .card{
+    width: calc(35% - 20px);
+    background: rgb(235, 101, 39);
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px 25px;
+    cursor:grabbing;
+    transition: all 0.2s ease;
+}
+.gallery .serv-content .card:hover{
+    background: rgb(70, 164, 219);
+}
+.gallery .serv-content .card .box{
+    transition: all 0.2s ease;
+}
+.gallery .serv-content .card:hover .box{
+    transform: scale(1.05);
+}
+.gallery .serv-content .card .box .text{
+    margin-bottom: 5px;
+    font-size: 15px;
+    text-align:justify;
+}
+
+.gallery .serv-content .card .box img{
+    height: 300px;
+    width: 300px;
+}
+
+.gallery .serv-content .card i{
+    font-size: 35px;
+    margin-right: 15px;
+    margin-left: 15px;
+    color: #061129;
+    transition: color 0.2s ease;
+}
+
+.gallery .serv-content .card:hover i{
+    color: #fff;
+}
+.gallery .serv-content .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+
+    </style>
+</head>
+<body>
+  <section class="gallery" id="gallery">
+    <div class="max-width">
+        <h2 class="title">Галерија со убавините на Република Нашата земја</h2>
+        <h3 class="title2"><a id="title2" href="probaCELA.html">Главна страна</a></h3>
+        <div class="serv-content">
+
+
+            <div class="card">
+                <div class="box">
+                    <img src="img/bitola.png" alt="Saat Kula Bitola">
+                    <br>
+                    <a id = "1" onclick="countLikes(this.id)">
+                      <i class="fa fa-thumbs-up">
+                        <div id="l1" style="display: inline-block;">
+                          <script>document.getElementById("l1").innerHTML = getSavedValue("l1");</script></div></i></a>
+                    <a id = "101" onclick="addComment(this.id)">
+                      <i class="fa fa-comment"><div id="s1" style="display: inline-block;">
+                        <script>document.getElementById("s1").innerHTML = getSavedValue("s1");</script></div></i></a>
+
+                    <div class="text" id="p1"></div>
+                </div>
+            </div>
+
+
+
+            <div class="card">
+                <div class="box">  
+                    <img src="img/golemo.png" alt="">
+                    <br>
+                    <a id = "2" onclick="countLikes(this.id)"><i class="fa fa-thumbs-up"><div id="l2" style="display: inline-block;"><script>document.getElementById("l2").innerHTML = getSavedValue("l2");</script></div></i></a>
+                    <a id = "102" onclick="addComment(this.id)"><i class="fa fa-comment"><div id="s2" style="display: inline-block;"><script>document.getElementById("s2").innerHTML = getSavedValue("s2");</script></div></i></a>           
+                    <div class="text" id="p2"></div>
+                </div>
+            </div>
+
+
+
+
+            <div class="card">
+                <div class="box">
+                    <img src="img/korab.png" alt=" ">
+                    <br>
+                    <a id = "3" onclick="countLikes(this.id)"><i class="fa fa-thumbs-up"><div id="l3" style="display: inline-block;"><script>document.getElementById("l3").innerHTML = getSavedValue("l3");</script></div></i></a>
+                    <a id = "103" onclick="addComment(this.id)"><i class="fa fa-comment"><div id="s3" style="display: inline-block;"><script>document.getElementById("s3").innerHTML = getSavedValue("s3");</script></div></i></a>
+
+                    <div class="text" id="p3"></div>
+                </div>
+            </div>
+
+            <div class="card">
+              <div class="box">  
+                  <img src="img/bigorski.png" alt="">
+                  <br>
+                  <a id = "4" onclick="countLikes(this.id)"><i class="fa fa-thumbs-up"><div id="l4" style="display: inline-block;"><script>document.getElementById("l4").innerHTML = getSavedValue("l4");</script></div></i></a>
+                  <a id = "104" onclick="addComment(this.id)"><i class="fa fa-comment"><div id="s4" style="display: inline-block;"><script>document.getElementById("s4").innerHTML = getSavedValue("s4");</script></div></i></a>           
+                  <div class="text" id="p4"></div>
+              </div>
+          </div>
+
+
+          <div class="card">
+            <div class="box">  
+                <img src="img/ohrid.png" alt="">
+                <br>
+                <a id = "5" onclick="countLikes(this.id)"><i class="fa fa-thumbs-up"><div id="l5" style="display: inline-block;"><script>document.getElementById("l5").innerHTML = getSavedValue("l5");</script></div></i></a>
+                <a id = "105" onclick="addComment(this.id)"><i class="fa fa-comment"><div id="s5" style="display: inline-block;"><script>document.getElementById("s5").innerHTML = getSavedValue("s5");</script></div></i></a>           
+                <div class="text" id="p5"></div>
+            </div>
+        </div>
+
+
+        <div class="card">
+          <div class="box">  
+              <img src="img/prespa.png" alt="">
+              <br>
+              <a id = "6" onclick="countLikes(this.id)"><i class="fa fa-thumbs-up"><div id="l6" style="display: inline-block;"><script>document.getElementById("l6").innerHTML = getSavedValue("l6");</script></div></i></a>
+              <a id = "106" onclick="addComment(this.id)"><i class="fa fa-comment"><div id="s6" style="display: inline-block;"><script>document.getElementById("s6").innerHTML = getSavedValue("s6");</script></div></i></a>           
+              <div class="text" id="p6"></div>
+          </div>
+      </div>
+
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
